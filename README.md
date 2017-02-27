@@ -31,7 +31,7 @@ docker run                               \
 We will need the application model, environment file and same sample scripts which we are using in our model in order to hook up into various stages of the deploy.
 
 ```
-git clone git@github.com:pavel-georgiev/skopos-sample-app.git
+git clone https://github.com/pavel-georgiev/skopos-sample-app.git
 ```
 
 
@@ -67,7 +67,7 @@ Some of the steps are inserted based on [lifecycle](http://skopos-beta.datagrids
 
 
 ### Run deploy
-Either from the GUI or from CLI:
+Either from the GUI or from CLI. The initial deploy may take a few minutes since container images will need to be downloaded.
 
 ```
 ~/bin/sks-ctl start -bind my-ip-or-host:8090
