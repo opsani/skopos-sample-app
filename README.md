@@ -2,7 +2,7 @@ Sample Skopos application
 ===========================
 This is a sample containerized application that can be deployed and upgraded with [Skopos](http://skopos-beta.datagridsys.com/).
 
-The application in question exposes two web interfaces - one that allows votes to be casted and one that shows results. The example below can be used as a guid on how to deploy, upgrade (to a version with modified UI) and tear-down this sample application.
+The application in question exposes two web interfaces - one that allows votes to be casted and one that shows results. The example below can be used as a guide on how to deploy, upgrade (to a version with modified UI) and tear-down this sample application.
 
 ![skopos sample app](skopos-sample-app.png)
 
