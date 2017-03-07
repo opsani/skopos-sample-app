@@ -2,7 +2,7 @@ Sample Skopos application
 ===========================
 This is a sample containerized application that can be deployed and upgraded with [Skopos](http://skopos-beta.datagridsys.com/).
 
-The application in question exposes two web interfaces - one that allows votes to be casted and one that shows results. The example below can be used as a guide on how to deploy, upgrade (to a version with modified UI) and tear-down this sample application.
+The application in question exposes two web interfaces - one that allows votes to be cast and one that shows results. The example below can be used as a guide on how to deploy, upgrade (to a version with modified UI) and tear-down this sample application.
 
 ![skopos sample app](skopos-sample-app.png)
 
@@ -31,7 +31,7 @@ docker run                               \
 We will need the application model, environment file and same sample scripts which we are using in our model in order to hook up into various stages of the deploy.
 
 ```
-git clone https://github.com/pavel-georgiev/skopos-sample-app.git
+git clone https://github.com/datagridsys/skopos-sample-app.git
 ```
 
 
@@ -81,7 +81,7 @@ After the deploy, the web interface exposed by the sample application would be a
 * Result: http://my-ip-or-host:8881/
 
 ### Upgrade to a new version
-This repository contains a second model, where the versions of two of the components - result and vote - are updated to 2.0. You can load the new model with the command below. Skopos would generate a plan for getting from the current state (v 1.0) to the desired state as described in the model (v2.0 of vote and result components).
+This repository contains a second model, where the versions of two of the components - result and vote - are updated to 2.0. You can load the new model with the command below. Skopos would generate a plan for getting from the current state (v1.0) to the desired state as described in the model (v2.0 of vote and result components).
 
 
 ```
