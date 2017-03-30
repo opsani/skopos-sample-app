@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/datagridsys/skopos](https://badges.gitter.im/datagridsys/skopos.svg)](https://gitter.im/datagridsys/skopos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Sample Skopos application
 ===========================
 This is a sample containerized application that can be deployed and upgraded with [Skopos](http://skopos-beta.datagridsys.com/).
