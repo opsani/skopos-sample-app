@@ -2,6 +2,8 @@
 
 Sample Skopos application
 ===========================
+
+[![Join the chat at https://gitter.im/datagridsys/skopos-sample-app](https://badges.gitter.im/datagridsys/skopos-sample-app.svg)](https://gitter.im/datagridsys/skopos-sample-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 This is a sample containerized application that can be deployed and upgraded with [Skopos](http://skopos-beta.datagridsys.com/).
 
 The application in question exposes two web interfaces - one that allows votes to be cast and one that shows results. The example below can be used as a guide on how to deploy, upgrade (to a version with modified UI) and tear-down this sample application.
