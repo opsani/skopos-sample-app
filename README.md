@@ -1,5 +1,11 @@
 [![Join the chat at https://gitter.im/datagridsys/skopos](https://badges.gitter.im/datagridsys/skopos.svg)](https://gitter.im/datagridsys/skopos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+Skopos Continuous Deployment System for Containers
+===========================
+Before you get started, [read this short blog](http://datagridsys.com/2017/04/18/introducing-skopos/) on what Skopos is and what it does. 
+
+Below you will find a sample application along with a copy of the [Skopos Continuous Deployment System](http://datagridsys.com/skopos/). The instructions share how to download and install both Skopos and the demo app so that you can try out our system. If you want to try out Skopos with your own app, check out our [Getting Started Guide](http://skopos-beta.datagridsys.com/).
+
 Sample Skopos application
 ===========================
 
