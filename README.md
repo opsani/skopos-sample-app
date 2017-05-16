@@ -21,19 +21,22 @@ The application in question exposes two web interfaces - one that allows votes t
 docker pull datagridsys/skopos:beta
 ```
 
-### Extract Skopos CLI
-The CLI is a thin wrapper on top of the Skopos REST API. It is packaged in the same container. The CLI does not need to run on the same host as Skopos, it can be run on any Linux host with network access to the Skopos engine.
+### Download and Install Skopos CLI
+The CLI is a thin wrapper on top of the Skopos REST API. The CLI does not need to run on the same host as Skopos, it can be run on any host with network access to the Skopos engine.
+
+The `sks-ctl` utility is a self-contained executable available for the following operating systems:
+
+* Linux: [https://s3.amazonaws.com/get-skopos/beta/linux/sks-ctl](https://s3.amazonaws.com/get-skopos/beta/linux/sks-ctl)
+* OS X: [https://s3.amazonaws.com/get-skopos/beta/darwin/sks-ctl](https://s3.amazonaws.com/get-skopos/beta/darwin/sks-ctl)
+* Windows: [https://s3.amazonaws.com/get-skopos/beta/windows/sks-ctl.exe](https://s3.amazonaws.com/get-skopos/beta/windows/sks-ctl.exe)
+
+To download and install on Linux:
 
 ```
+wget https://s3.amazonaws.com/get-skopos/beta/linux/sks-ctl
+chmod +x sks-ctl
 mkdir -p ~/bin
-rm -rf ~/bin/sks-ctl
-touch ~/bin/sks-ctl
-docker run                               \
-    --rm                                 \
-    -v ~/bin/sks-ctl:/skopos/bin/sks-ctl \
-    --entrypoint "/bin/bash"             \
-    datagridsys/skopos:beta              \
-    -c 'cp -a engine /skopos/bin/sks-ctl'
+mv sks-ctl ~/bin
 ```
 
 ### Clone this repository
