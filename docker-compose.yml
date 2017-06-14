@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  vote:
+    image: datagridsys/sample-vote:1.0
+    command: python app.py
+    ports:
+      - "10000:80"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:3.2.2
+
+  worker:
+    image: datagridsys/sample-worker:1.0
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:9.4
+
+  result:
+    image: datagridsys/sample-result:1.0
+    #command: nodemon --debug server.js
+    ports:
+      - "10001:80"
+      #- "5858:5858"
+    depends_on:
+      - db
+
