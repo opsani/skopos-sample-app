@@ -35,14 +35,6 @@ components:
                       plugin   : docker
                       action   : comp_signal
                       arguments:  { component: "nginx", signal: "HUP" }
-            quality_probe:
-                steps:
-                    - exec:
-                        label: "Verify new vote operation"
-                        arguments: [ "gate-vote-ok", "{{.id}}" ]
-                    - exec:
-                        label: "Verify new vote response time"
-                        arguments: [ "gate-vote-perf", "{{.id}}" ]
         provides:
             ports: [ "80" ]
         uses:
@@ -58,21 +50,12 @@ components:
             x: 900
             y: 180
         lifecycle:
-            post_instance_detach:       # s/b integration_probe (last forward-only injection before destroy)
                 steps:
-                    - exec:
-                        label: "Drain redis worker tasks"
-                        arguments: [ 'gate-drain-redis', '{{.id}}' ]
                     - call:
                         plugin: docker
                         action: comp_signal
                         label: "Re-attach workers to redis"
                         arguments:  { component: "worker", signal: "INT" }
-            quality_probe:
-                steps:
-                    - exec:
-                        label: "Verify new redis performance (30s timeout)"
-                        arguments: [ 'gate-redis-perf', "{{.id}}", '30s' ]
 
     worker:
         image: datagridsys/sample-worker:1.0
@@ -83,15 +66,6 @@ components:
         visual:
             x: 600
             y: 280
-        lifecycle:
-            quality_probe:
-                steps:
-                    - exec:
-                        label: "Verify new worker operation"
-                        arguments: [ "gate-worker-ok", "{{.id}}" ]
-                    - exec:
-                        label: "Verify new worker performance"
-                        arguments: [ "gate-worker-perf", "{{.id}}" ]
 
     db:
         image: postgres:9.4
@@ -99,12 +73,6 @@ components:
         visual:
             x: 900
             y: 380
-        lifecycle:
-            quality_probe:
-                steps:
-                    - exec:
-                        label: "Verify new db operation (30s timeout)"
-                        arguments: [ "gate-postgres-ok", "{{.id}}", "30s" ]
 
     result:
         image: datagridsys/sample-result:1.0
@@ -116,12 +84,6 @@ components:
         visual:
             x: 600
             y: 480
-        lifecycle:
-            quality_probe:
-                steps:
-                    - exec:
-                        label: "Verify new result operation"
-                        arguments: [ "gate-result-ok", "{{.id}}" ]
 
 gateways:
     vote-in:
