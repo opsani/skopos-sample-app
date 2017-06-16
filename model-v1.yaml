@@ -28,13 +28,13 @@ components:
                   - call:
                       plugin   : docker
                       action   : comp_signal
-                      arguments:  { component: "nginx", signal: "HUP" }
+                      arguments:  { target: "nginx", signal: "HUP" }
             post_instance_detach:
                 steps:
                   - call:
                       plugin   : docker
                       action   : comp_signal
-                      arguments:  { component: "nginx", signal: "HUP" }
+                      arguments:  { target: "nginx", signal: "HUP" }
         provides:
             ports: [ "80" ]
         uses:
@@ -55,7 +55,7 @@ components:
                         plugin: docker
                         action: comp_signal
                         label: "Re-attach workers to redis"
-                        arguments:  { component: "worker", signal: "INT" }
+                        arguments:  { target: "worker", signal: "INT" }
 
     worker:
         image: datagridsys/sample-worker:1.0
