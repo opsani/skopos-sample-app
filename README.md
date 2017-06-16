@@ -18,7 +18,7 @@ The application in question exposes two web interfaces - one that allows votes t
 ### Download Skopos image
 
 ```
-docker pull datagridsys/skopos:beta
+docker pull datagridsys/skopos:edge
 ```
 
 ### Download and Install Skopos CLI
@@ -26,14 +26,14 @@ The CLI is a thin wrapper on top of the Skopos REST API. The CLI does not need t
 
 The `sks-ctl` utility is a self-contained executable available for the following operating systems:
 
-* Linux: [https://s3.amazonaws.com/get-skopos/beta/linux/sks-ctl](https://s3.amazonaws.com/get-skopos/beta/linux/sks-ctl)
-* OS X: [https://s3.amazonaws.com/get-skopos/beta/darwin/sks-ctl](https://s3.amazonaws.com/get-skopos/beta/darwin/sks-ctl)
-* Windows: [https://s3.amazonaws.com/get-skopos/beta/windows/sks-ctl.exe](https://s3.amazonaws.com/get-skopos/beta/windows/sks-ctl.exe)
+* Linux: [https://s3.amazonaws.com/get-skopos/edge/linux/sks-ctl](https://s3.amazonaws.com/get-skopos/edge/linux/sks-ctl)
+* OS X: [https://s3.amazonaws.com/get-skopos/edge/darwin/sks-ctl](https://s3.amazonaws.com/get-skopos/edge/darwin/sks-ctl)
+* Windows: [https://s3.amazonaws.com/get-skopos/edge/windows/sks-ctl.exe](https://s3.amazonaws.com/get-skopos/edge/windows/sks-ctl.exe)
 
 To download and install on Linux:
 
 ```
-wget https://s3.amazonaws.com/get-skopos/beta/linux/sks-ctl
+wget https://s3.amazonaws.com/get-skopos/edge/linux/sks-ctl
 chmod +x sks-ctl
 mkdir -p ~/bin
 mv sks-ctl ~/bin
@@ -56,7 +56,7 @@ cd skopos-sample-app
 docker run -d -p 8090:80 --restart=unless-stopped --name skopos   \
     -v /var/run/docker.sock:/var/run/docker.sock                  \
     -v $(pwd)/scripts:/skopos/user/bin/         \
-    datagridsys/skopos:beta
+    datagridsys/skopos:edge
 ```
 
 ### Load model for initial deploy
