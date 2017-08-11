@@ -33,7 +33,7 @@ mv sks-ctl ~/bin
 We will need the application model, environment file and same sample scripts which we are using in our model in order to hook up into various stages of the deploy.
 
 ```
-git clone https://github.com/datagridsys/skopos-sample-app.git
+git clone https://github.com/opsani/skopos-sample-app.git
 ```
 
 ### Download/Run Skopos image
