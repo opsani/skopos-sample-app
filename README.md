@@ -100,7 +100,11 @@ Click the start button to Deploy the update to the demo app. If you open the res
 Note: replace `localhost` with the actual host or IP address where Skopos runs.
 
 ### Tear down the application
-If you want to remove all containers for our sample application, run the following command or use the `Teardown` option in the UI.
+If you want to remove all containers for our sample application, use the `Teardown` option in the UI by selecting the action button drop down and then selecting `teardown`. Next select start to run the teardown steps.
+
+<img src="teardown.png" width="250">
+
+or run the following command:
 
 ```
 ~/bin/sks-ctl run -bind localhost:8100 -mode teardown -project skopos-sample -env env.yaml model-v2.yaml
