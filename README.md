@@ -1,36 +1,45 @@
 [![Join the chat at https://gitter.im/opsani/skopos](https://badges.gitter.im/opsani/skopos.svg)](https://gitter.im/opsani/skopos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Sample Skopos application
+Skopos Continuous Deployment System
+==========================
+[Skopos™](http://opsani.com/skopos/) is a modern continuous deployment system for container-based services, especially for DevOps teams and those using microservice architectures.  Skopos consists of two components:
+
+* The _Skopos engine_, packaged in a single container for simple installation
+* The _Skopos control utility_ - a command line utility `skopos`, available for Linux, Mac OS and Windows. This utility may run on the same host where the Skopos engine runs or anywhere else with network access to that host.
+
+Below you can find a sample application and instructions for starting Skopos and deploying this sample app.  If you want to try out Skopos with your own app, check out our [Getting Started Guide](http://doc.opsani.com/skopos/edge/README/).
+
+Skopos Sample Application
 ===========================
 
-This is a sample containerized application that can be deployed and upgraded with [Skopos](http://opsani.com/skopos/).
-
-The application in question exposes two web interfaces - one that allows votes to be cast and one that shows results. The example below can be used as a guide on how to deploy, upgrade (to a version with modified UI) and tear-down this sample application.
+This Skopos sample application is a scalable variant of the Docker example Pet Voting Application which deploys to Docker (single host).  The application exposes two web interfaces - one that allows votes to be cast and one that shows results.  The example below can be used as a guide on how to deploy, upgrade (to a version with modified UI), and tear-down this sample application.
 
 ![skopos sample app](architecture1.png)
 
 ### Download and Install Skopos CLI
 
-The CLI is a thin wrapper on top of the Skopos REST API. The CLI does not need to run on the same host as Skopos, it can be run on any host with network access to the Skopos engine.
+The `skopos` command line utility, or CLI, is a thin wrapper on top of the Skopos REST API.  This self-contained executable is available for the following operating systems:
 
-The sks-ctl utility is a self-contained executable available for the following operating systems:
-
-    Linux: https://s3.amazonaws.com/get-skopos/edge/linux/sks-ctl
-    OS X: https://s3.amazonaws.com/get-skopos/edge/darwin/sks-ctl
-    Windows: https://s3.amazonaws.com/get-skopos/edge/windows/sks-ctl.exe
+    Linux: https://s3.amazonaws.com/get-skopos/edge/linux/skopos
+    OS X: https://s3.amazonaws.com/get-skopos/edge/darwin/skopos
+    Windows: https://s3.amazonaws.com/get-skopos/edge/windows/skopos.exe
 
 To download and install on Linux:
 
 ```
-wget https://s3.amazonaws.com/get-skopos/edge/linux/sks-ctl
-chmod +x sks-ctl
+wget https://s3.amazonaws.com/get-skopos/edge/linux/skopos
+chmod +x skopos
 mkdir -p ~/bin
-mv sks-ctl ~/bin
+mv skopos ~/bin
 ```
+
+>The `~/bin` directory used above is writeable even without root privileges. If
+>you have root privileges, you may prefer to install `skopos` in the
+>`/usr/local/bin` directory instead.
 
 ### Clone this repository
 
-We will need the application model, environment file and same sample scripts which we are using in our model in order to hook up into various stages of the deploy.
+We will need the application model, environment file and some sample scripts which we are using in our model in order to hook up into various stages of the deploy.
 
 ```
 git clone https://github.com/opsani/skopos-sample-app.git
@@ -83,7 +92,7 @@ Note: replace `localhost` with the actual host or IP address where Skopos runs.
 This repository contains a second model, where the versions of two of the components - result and vote - are updated to 2.0. You can load the new model with the command below. Skopos would generate a plan for getting from the current state (v1.0) to the desired state as described in the model (v2.0 of vote and result components).
 
 ```
-~/bin/sks-ctl load -bind localhost:8100 -project skopos-sample -env env.yaml model-v2.yaml
+~/bin/skopos load -bind localhost:8100 -project skopos-sample -env env.yaml model-v2.yaml
 ```
 
 Note: replace `localhost` with the actual host or IP address where Skopos runs.
@@ -107,7 +116,7 @@ If you want to remove all containers for our sample application, use the `Teardo
 or run the following command:
 
 ```
-~/bin/sks-ctl run -bind localhost:8100 -mode teardown -project skopos-sample -env env.yaml model-v2.yaml
+~/bin/skopos run -bind localhost:8100 -mode teardown -project skopos-sample -env env.yaml model-v2.yaml
 ```
 
 Note: replace `localhost` with the actual host or IP address where Skopos runs.
